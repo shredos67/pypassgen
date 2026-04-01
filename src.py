@@ -2,8 +2,6 @@
 import string
 import argparse
 import os
-import pathlib
-import time
 import secrets
 import sys
 from cryptography.fernet import Fernet
