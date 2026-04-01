@@ -50,11 +50,6 @@ def listPasswords(fernet):
             except Exception as e:
                 print(f"Error decrypting {name}: {e}")
 
-
-
-
-
-
 parser = argparse.ArgumentParser(description="adrians password generator")
 
 parser.add_argument("-l", "--length", type=int, default=12,
@@ -101,11 +96,7 @@ generatedPassword =''.join(secrets.choice(characterpool) for _ in range(args.len
 
 print(generatedPassword)
 
-
-
 #passwPath = "data/passw"
-
-
 
 while True:
     saveAsk = input(purple + "save password? y/n\n-> " + reset)
