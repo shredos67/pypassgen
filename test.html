@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>it works</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0f0f0f;
+            color: #fff;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #00ff88;
+        }
+
+        p {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .info {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #aaa;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .info span {
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <h1>✓ it works</h1>
+    <p>dns spoof + flask server is working</p>
+    <div class="info">
+        ip: <span id="ip">fetching...</span><br>
+        ua: <span id="ua"></span><br>
+        time: <span id="time"></span>
+    </div>
+
+    <script>
+        document.getElementById("ua").textContent = navigator.userAgent;
+        document.getElementById("time").textContent = new Date().toLocaleString();
+        fetch("https://api.ipify.org?format=json")
+            .then(r => r.json())
+            .then(d => document.getElementById("ip").textContent = d.ip)
+            .catch(() => document.getElementById("ip").textContent = "unavailable");
+    </script>
+</body>
+</html>
